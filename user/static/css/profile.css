@@ -126,7 +126,10 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     width: 768px;
     max-width:600px;
     min-height:480px;
+<<<<<<< HEAD
     height: 800px;
+=======
+>>>>>>> 7a67b6562dbab3ad68c8f6d44e3cbf15f18dd856
 }
 .container p {
     font-size: 14px;
@@ -198,6 +201,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
         opacity: 1;
         z-index: 5;
     }
+<<<<<<< HEAD
 }
 
 
@@ -208,4 +212,6 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     min-width: 0; 
     margin-bottom: 0;
 
+=======
+>>>>>>> 7a67b6562dbab3ad68c8f6d44e3cbf15f18dd856
 }
