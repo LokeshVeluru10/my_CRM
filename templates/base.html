@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Hype{% endblock %}</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Apply the Roboto font to the entire body */
+    body {
+      font-family: 'Roboto', sans-serif;
+      
+    }
+
+    /* Add space between navbar items */
+    .navbar-nav .nav-link {
+      margin-right: 20px;
+    }
+
+    /* Style navbar items on hover */
+    .navbar-nav .nav-link:hover {
+      color: #000; /* Change text color to black on hover */
+    }
+
+    /* Style the activity and opportunities buttons */
+    .navbar-nav .nav-link.btn {
+      background-color: transparent; /* Transparent background */
+      color: #fff; /* White text */
+      transition: color 0.3s, border-color 0.3s; /* Smooth transition for text color and border color */
+    }
+
+    /* Style the activity and opportunities buttons on hover */
+    .navbar-nav .nav-link.btn:hover {
+      background-color: #b6a5de;
+      color: black;
+      border-color: #fff; /* White border on hover */
+    }
+
+    /* Purple background for the navbar */
+    .navbar-custom {
+      background-color: #512da8; /* Purple background color */
+    }
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+      color: #fff; /* White text color */
+    }
+
+    .navbar-custom .nav-link:hover {
+      color: #d1c4e9; /* Light purple color on hover */
+    }
+
+    .img-container {
+      position: relative;
+      text-align: center;
+      height: 100vh; /* Set height to viewport height */
+    }
+
+    /* Make the image responsive */
+    .img-container img {
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      object-fit: cover; /* Cover the entire container */
+    }
+
+    /* Dim light effect */
+    .dim-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #c9d6ff;
+      background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      font-size: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="{% url 'base' %}" onclick="refreshPage()">
+      <i class="fas fa-home"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link btn" href="{% url 'activities' %}">Activity</a> <!-- Redirect to activities.html -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" href="{% url 'Opportunities' %}">Opportunities</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}
+  <!-- Image under the navbar -->
+  <div class="container-fluid img-container">
+    <div class="dim-overlay">
+      <div>
+        <h1>Igniting Passion, Fostering Innovation</h1>
+        <h5>In a world buzzing with ideas, we spark the flames of innovation,</h5>
+        <h5>turning dreams into reality, one idea at a time.</h5>
+        <a href="" class="btn btn-primary about-us-btn">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+  <!-- Bootstrap JS and jQuery (optional, for Bootstrap components that require JS) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function refreshPage() {
+      location.reload();
+    }
+  </script>
+</body>
+</html>

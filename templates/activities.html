@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Activities - Hype{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Apply the Roboto font to the entire body */
+    body {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    }
+
+    /* Style clickable activities */
+    .activity-item {
+      padding: 10px; /* Add padding */
+      font-size: 24px; /* Larger font size */
+      font-weight: bold; /* Bold font */
+      text-decoration: none; /* Remove underline */
+      color: black; /* Black text color */
+      
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+    }
+
+    /* Style for the card */
+    .card {
+      background: linear-gradient(to left, #e2e2e2, #c9d6ff); /* Semi-transparent black background */
+      position: relative;
+      display: block;
+      width: fit-content;
+      margin: 0 auto; /* Center the card horizontally */
+      color: white;
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+    }
+
+    .list-group-item {
+      background-color: transparent;
+    }
+
+    .list-group-item:hover {
+      background-color: #b6a5de;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+      text-decoration: solid;
+    }
+
+    /* Style for the card title */
+    .card-title {
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold; 
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="title-container">
+          <h1 class="card-title">Activities of HYPE</h1>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item"><a href="{% url 'hackathon' %}" class="activity-item btn">Hackathons</a></li>
+          <li class="list-group-item"><a href="{% url 'team_building' %}" class="activity-item btn">Team Building Events</a></li>
+          <li class="list-group-item"><a href="{% url 'tech_talks' %}" class="activity-item btn">Tech Talks</a></li>
+          <li class="list-group-item"><a href="{% url 'workshops' %}" class="activity-item btn">Workshops</a></li>
+          <li class="list-group-item"><a href="{% url 'training_sessions' %}" class="activity-item btn">Training Sessions</a></li>
+          <li class="list-group-item"><a href="{% url 'networking_events' %}" class="activity-item btn">Networking Events</a></li>
+          <!-- Add more activities as needed -->
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+{% endblock %}

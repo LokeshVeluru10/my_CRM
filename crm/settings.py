@@ -56,11 +56,7 @@ ROOT_URLCONF = 'crm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-<<<<<<< HEAD
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
-=======
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
->>>>>>> 7a67b6562dbab3ad68c8f6d44e3cbf15f18dd856
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,11 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-<<<<<<< HEAD
 STATIC_URL = 'static/'
-=======
-STATIC_URL = '/static/'
->>>>>>> 7a67b6562dbab3ad68c8f6d44e3cbf15f18dd856
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type

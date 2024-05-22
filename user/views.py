@@ -1,21 +1,37 @@
 from django.shortcuts import render
 
 # Create your views here.
-def create(request):
-    return render(request, 'create.html')
 
-<<<<<<< HEAD
-=======
-def signin(request):
-    return render(request,'signin.html')
->>>>>>> 7a67b6562dbab3ad68c8f6d44e3cbf15f18dd856
+def base(request):
+    return render(request,'base.html')
 
-def profile(request):
-    return render(request, 'profile.html')
 
-<<<<<<< HEAD
-def signin(request):
-    return render(request, 'signin.html')
+def activities(request):
+    return render(request,'activities.html')
 
-=======
->>>>>>> 7a67b6562dbab3ad68c8f6d44e3cbf15f18dd856
+def Opportunities(request):
+    return render(request,'Opportunities.html')
+
+def job_opportunities(request):
+    return render(request,'job_opportunities.html')
+
+def internship_opportunities(request):
+    return render(request,'internship_opportunities.html')
+
+def hackathon(request):
+    return render(request, 'hackathon.html')
+
+def team_building(request):
+    return render(request, 'team_building.html')
+
+def tech_talks(request):
+    return render(request, 'tech_talks.html')
+
+def workshops(request):
+    return render(request, 'workshops.html')
+
+def training_sessions(request):
+    return render(request, 'training_sessions.html')
+
+def networking_events(request):
+    return render(request, 'networking_events.html')

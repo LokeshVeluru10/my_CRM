@@ -1,0 +1,146 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Activities - Hype{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon Details</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #c9d6ff;
+      background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+      color: black; /* Default text color */
+  }
+     /* Custom CSS for sticky button */
+     .sticky-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+  
+      /* Center the image horizontally */
+      .img-container {
+        position: relative;
+        text-align: center;
+        height: 100vh; /* Set height to viewport height */
+      }
+  
+      /* Make the image responsive */
+      .img-container img {
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        object-fit: cover; /* Cover the entire container */
+      }
+  
+      /* Dim light effect */
+      .dim-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 24px;
+        text-align: center;
+      }
+  
+      /* Background image for hackathon.html */
+      body {
+        background-color: #c9d6ff;
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+      }
+  
+      /* Set paragraph text color to white */
+      body p {
+        color: black; /* White text */
+      }
+      
+      /* Card hover effect */
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+      }
+  
+      /* Transparent card */
+      .card {
+        background-color: transparent; /* Transparent white */
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Add shadow */
+      }
+        /* Remove underline for all anchor elements */
+        a {
+          text-decoration: none !important;
+        }
+      
+      big{
+        padding: 10px;
+      }
+
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h1><a href="{% url 'team_building' %}">TEAM BUILDING</a></h1><br>
+    <!-- Card for the networking event -->
+    <div class="card">
+      <!-- Insert image -->
+      <img class="card-img-top" src="https://engage4more.com/blog/wp-content/uploads/2022/03/Outdoor-activities-for-corporate-events-1.jpeg" alt="Team Building Event Image" style="width: 100%; max-width: 800px; height: auto; margin-bottom: 20px;">
+
+      <div class="card-body">
+        <!-- Heading for the networking event -->
+        <h2 class="card-title" style="color: blue;">Team Building </h2>
+        <!-- Paragraphs about the networking event -->
+        <p class="card-text"><big>" TEAM BUILDING ",</big>is an essential aspect of fostering camaraderie, collaboration, and synergy among team members within our company. Recently, we organized a memorable team building event that aimed to strengthen bonds, enhance communication, and promote a positive work culture.</p>
+
+        <p class="card-text">The event, held on [Insert Date], brought together employees from various departments and levels within the organization. Through a series of engaging activities and challenges, participants had the opportunity to collaborate, problem-solve, and build trust in a fun and relaxed setting.</p>
+
+        <p class="card-text">From outdoor adventure activities to indoor team challenges, the event offered a diverse range of experiences designed to cater to different interests and preferences. Activities such as ropes courses, scavenger hunts, and team-based games encouraged teamwork, leadership, and creativity.</p>
+
+        <p class="card-text">One of the key objectives of the team building event was to break down silos and encourage cross-departmental collaboration. By mixing teams and encouraging interaction among colleagues who may not typically work together, the event facilitated new connections and fostered a sense of unity across the organization.</p>
+
+        <p class="card-text">In addition to the activities, the event also included opportunities for reflection and team building exercises focused on communication, trust-building, and goal-setting. These sessions provided valuable insights and tools that participants could apply to their everyday work environments.</p>
+
+        <p class="card-text">Overall, the team building event was a resounding success, with participants expressing enthusiasm and appreciation for the experience. Feedback from attendees highlighted the positive impact of the event on team dynamics, morale, and productivity.</p>
+
+        <p class="card-text">Looking ahead, we are committed to organizing more team building events that promote collaboration, engagement, and a sense of belonging within our company. By investing in our teams and fostering strong relationships, we believe we can achieve greater success and drive positive outcomes for our organization.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back button -->
+  <button class="btn btn-secondary mt-3 sticky-btn"><a href="{% url 'activities' %}" class="btn btn-secondary mt-3 sticky-btn">Back</a></button>
+
+  <!-- Bootstrap JS and jQuery (optional, for Bootstrap components that require JS) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function refreshPage() {
+      location.reload();
+    }
+  </script>
+</body>
+</html>
+
+
+
+{% endblock %}
