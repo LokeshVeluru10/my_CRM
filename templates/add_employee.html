@@ -1,0 +1,188 @@
+{% extends 'base1.html' %}
+
+{% block title %}Employee Registration{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Registration</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Apply the Roboto font to the entire body */
+    body {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    }
+
+    /* Style for the form container */
+    .container {
+      margin-top: 20px;
+      height: 300px; /* Adjust the height as needed */
+    }
+
+    /* Style for the card */
+    .card {
+        background: linear-gradient(to left, #e2e2e2, #c9d6ff);
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        margin: 0 auto;
+        max-width: 500px;
+        padding: 20px;
+        height: 620px;
+      }
+      
+
+    /* Style for form inputs */
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+    }
+    input[type="email"], select {
+        width: 100%;
+        padding: 10px 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+      }
+      input[type="tel"], select {
+        width: 100%;
+        padding: 10px 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+      }
+
+      input[type="password"], select {
+        width: 100%;
+        padding: 10px 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+      }
+      
+
+    /* Style for the submit button */
+    input[type="submit"] {
+      background-color: #512da8;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #b6a5de;
+    }
+
+    #dob {
+        float: right;
+        }
+        .container button.button-like {
+            background-color: #512da8;
+            color: #fff;
+            font-size: 12px;
+            padding: 10px 45px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+      
+        .container button.button-like:hover{
+            background-color: #b6a5de;
+            color: black;
+        }      
+    </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <h1>Employee Registration</h1>
+      <form action="/submit_registration" method="POST">
+        {% csrf_token %}
+
+        <!-- Name -->
+        <input type="text" id="name" name="name" placeholder="Enter employee name"><br>
+        
+        <!-- Email -->
+        <input type="email" id="email" name="email" placeholder="Enter email"><br>
+
+        <!-- Password -->
+        <input type="password" id="password" name="password" placeholder="Create password" required><br>
+
+         <!-- Phone Number -->
+         <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required><br>
+       
+         <!-- Address -->
+         <input type="text" id="address" name="address" placeholder="Enter address" required><br>
+       
+         <!-- Pincode -->
+         <input type="tel" id="pincode" name="pincode" placeholder="Enter pincode" required><br>
+
+         <!-- Date of Birth -->
+         <input type="date" id="dob" name="dob" required><br>
+
+        <select id="department" name="department">
+            <option value="department">Select Department</option>
+          <option value="BPO Team">BPO Team</option>
+          <option value="Sales Team">Sales Team</option>
+          <option value="Contact Team">Contact Team</option>
+          <option value="Service Team">Service Team</option>
+        </select><br><br>
+
+    
+        <!-- Submit Button -->
+        <button type="button" onclick="redirectToCreate()" class="button-like">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+ 
+    function redirectToCreate() {
+  
+        window.location.href = "{% url 'employees' %}";
+  
+    }
+  </script>
+
+</body>
+</html>
+
+{% endblock %}

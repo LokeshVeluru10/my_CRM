@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 
-{% block title %}Activities{% endblock %}
+{% block title %}Settings - Hype{% endblock %}
 
 {% block content %}
 <!DOCTYPE html>
@@ -31,8 +31,8 @@
       
     }
 
-    .card:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+    .btn {
+        border: bisque;
     }
 
     /* Style for the card */
@@ -44,7 +44,11 @@
       margin: 0 auto; /* Center the card horizontally */
       color: white;
       border-radius: 10px; /* Rounded corners */
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
 
     .list-group-item {
@@ -53,6 +57,7 @@
 
     .list-group-item:hover {
       background-color: #b6a5de;
+      
       text-decoration: solid;
     }
 
@@ -70,16 +75,12 @@
     <div class="card">
       <div class="card-body">
         <div class="title-container">
-          <h1 class="card-title">Activities</h1>
+          <h1 class="card-title">Settings</h1>
         </div>
         <ul class="list-group">
-          <li class="list-group-item"><a href="{% url 'hackathon' %}" class="activity-item btn">Hackathons</a></li>
-          <li class="list-group-item"><a href="{% url 'team_building' %}" class="activity-item btn">Team Building Events</a></li>
-          <li class="list-group-item"><a href="{% url 'tech_talks' %}" class="activity-item btn">Tech Talks</a></li>
-          <li class="list-group-item"><a href="{% url 'workshops' %}" class="activity-item btn">Workshops</a></li>
-          <li class="list-group-item"><a href="{% url 'training_sessions' %}" class="activity-item btn">Training Sessions</a></li>
-          <li class="list-group-item"><a href="{% url 'networking_events' %}" class="activity-item btn">Networking Events</a></li>
-          <!-- Add more activities as needed -->
+          <li class="list-group-item"><a href="{% url 'update_profile' %}" class="activity-item btn">Update Profile</a></li>
+          <li class="list-group-item"><a href="{% url 'change_password' %}" class="activity-item btn">Change Password</a></li>
+          <li class="list-group-item"><a href="{% url 'site_settings' %}" class="activity-item btn">Site Settings</a></li>
         </ul>
         
       </div>

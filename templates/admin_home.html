@@ -1,0 +1,210 @@
+{% extends 'base1.html' %}
+
+{% block title %}Admin Home{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporting and Analytics</title>
+  <!-- Include any CSS libraries for styling -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #c9d6ff;
+      background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+      color: black; /* Default text color */
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 10px; /* Reduce margin to decrease the gap */
+    }
+
+    h1 {
+      font-size: 24px; /* Reduce header font size */
+      font-weight: bold; /* Make header bold */
+      margin-bottom: 5px; /* Reduce margin bottom */
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(to top, #e2e2e2, #c9d6ff);
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 48%;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      font-size: 18px; /* Reduce header font size */
+      font-weight: bold; /* Make header bold */
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-group label {
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .input-group button {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #512da8;
+      color: white;
+      cursor: pointer;
+    }
+
+    .input-group button:hover {
+      background-color: #b6a5de;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sales Performance Report</h1>
+  </header>
+
+  <section id="graphs">
+    <h2>Graphs</h2>
+    <div class="card-container">
+      <div class="card">
+        <canvas id="salesChart" width="400" height="200"></canvas>
+      </div>
+      <div class="card">
+        <div class="input-group">
+          <label for="product">Product:</label>
+          <input type="text" id="product" name="product" placeholder="Enter product name">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" placeholder="Enter quantity">
+          <label for="price">Price per Product:</label>
+          <input type="number" id="price" name="price" placeholder="Enter price">
+          <button type="button" id="submitBtn">Submit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lists">
+    <h2>Lists</h2>
+    <div class="card-container">
+      <div class="card">
+        <ul id="topProducts">
+          <li>Top Selling Products:
+            <ol id="topProductsList">
+              
+            </ol>
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul id="keyMetrics">
+          <li>Key Metrics:
+            <ul>
+              <li id="totalRevenue">Total Revenue: $100,000</li>
+              <li>New Customers: 50</li>
+              <li>Customer Satisfaction: 90%</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Generated on: May 22, 2024</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // JavaScript to populate and render the chart
+    var ctx = document.getElementById('salesChart').getContext('2d');
+    var salesChart = new Chart(ctx, {
+      type: 'bar', // Changed to bar chart for better representation of total sales
+      data: {
+        labels: [], // Empty array to hold product names
+        datasets: [{
+          label: 'Sales',
+          data: [], // Empty array to hold sales data
+          backgroundColor: 'blue',
+          borderColor: 'blue',
+          borderWidth: 1,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: false,
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    // JavaScript to handle input changes and update the chart
+    document.getElementById('submitBtn').addEventListener('click', updateChart);
+
+    function updateChart() {
+      var product = document.getElementById('product').value;
+      var quantity = parseFloat(document.getElementById('quantity').value);
+      var price = parseFloat(document.getElementById('price').value);
+
+      if (product && !isNaN(quantity) && !isNaN(price)) {
+        var totalSales = quantity * price;
+
+        // Update the chart
+        salesChart.data.labels.push(product); // Add product name to labels
+        salesChart.data.datasets[0].data.push(totalSales); // Add total sales to data
+        salesChart.update();
+
+        // Update the Top Selling Products list
+        var topProductsList = document.getElementById('topProductsList');
+        var newProductItem = document.createElement('li');
+        newProductItem.textContent = product + " - Quantity: " + quantity + ", Total: $" + totalSales.toFixed(2);
+        topProductsList.appendChild(newProductItem);
+
+        // Update the Key Metrics list
+        var totalRevenueElement = document.getElementById('totalRevenue');
+        var currentTotalRevenue = parseFloat(totalRevenueElement.textContent.replace('Total Revenue: $', '').replace(/,/g, ''));
+        var newTotalRevenue = currentTotalRevenue + totalSales;
+        totalRevenueElement.textContent = 'Total Revenue: $' + newTotalRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+{% endblock %}

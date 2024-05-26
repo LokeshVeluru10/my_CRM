@@ -14,5 +14,19 @@ urlpatterns = [
     path('workshops/', workshops, name='workshops'),
     path('training_sessions/', training_sessions, name='training_sessions'),
     path('networking_events/', networking_events, name='networking_events'),
+    path('About_us/', About_us, name='About_us'),
+    path('signin/', signin, name='signin'),
+    path('signup/', signup, name='signup'),
+    path('admin_home/', admin_home, name='admin_home'),
+    path('settings/', settings, name='settings'),
+    path('update_profile/', update_profile, name='update_profile'),
+    path('change_password/', change_password, name='change_password'),
+    path('site_settings/', site_settings, name='site_settings'),
+    path('change_password/', change_password, name='change_password'),
+    path('employees/', employees, name='employees'),
+    path('add_employee/', add_employee, name='add_employee'),
+
+    
+    
 ]
 

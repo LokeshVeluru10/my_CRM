@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Hype{% endblock %}</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .body{
+      background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    }
+    /* Customizing the navbar */
+    .navbar-custom {
+      background-color: #512da8; /* Purple background color */
+      color: #fff; /* White text color */
+    }
+    
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+      color: #fff; /* White text color */
+    }
+    
+    .navbar-nav .nav-link.btn:hover {
+      
+      color: black;
+      border-color: #fff; /* White border on hover */
+    }
+    ::-webkit-scrollbar{
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track{
+      background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+      
+    }
+    ::-webkit-scrollbar-thumb{
+      background-color: #512da8;
+      border-radius: 10px;
+    }
+    
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="{% url 'admin_home' %}" onclick="refreshPage()">
+      <i class="fas fa-home"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link btn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profile
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
+            <a class="dropdown-item" href="#">Contacts</a>
+            <a class="dropdown-item" href="{% url 'employees' %}">Employees</a>
+            <a class="dropdown-item" href="#">Applications</a>
+            <a class="dropdown-item" href="{% url 'base' %}">SignOut</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  {% block content %}
+  <!-- Image under the navbar -->
+  <div class="container-fluid img-container">
+    <div class="dim-overlay">
+      <div>
+        <h1>Igniting Passion, Fostering Innovation</h1>
+        <h5>In a world buzzing with ideas, we spark the flames of innovation,</h5>
+        <h5>turning dreams into reality, one idea at a time.</h5>
+        <a href="" class="btn btn-primary about-us-btn">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+  <!-- Bootstrap JS and jQuery (optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

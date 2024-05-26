@@ -14,9 +14,9 @@
     /* Apply the Roboto font to the entire body */
     body {
       font-family: 'Roboto', sans-serif;
-      
     }
 
+    
     /* Add space between navbar items */
     .navbar-nav .nav-link {
       margin-right: 20px;
@@ -32,6 +32,7 @@
       background-color: transparent; /* Transparent background */
       color: #fff; /* White text */
       transition: color 0.3s, border-color 0.3s; /* Smooth transition for text color and border color */
+      margin-left: 30px; /* Adjust spacing between buttons */
     }
 
     /* Style the activity and opportunities buttons on hover */
@@ -51,9 +52,16 @@
       color: #fff; /* White text color */
     }
 
-    .navbar-custom .nav-link:hover {
-      color: #d1c4e9; /* Light purple color on hover */
+    .navbar-custom .navbar-nav {
+      margin: auto;
     }
+    .navbar-nav {
+      margin: 0 auto; /* Center align the navbar items */
+      display: flex; /* Use flexbox for alignment */
+      justify-content: center; /* Align items horizontally at center */
+      align-items: center; /* Align items vertically at center */
+    }
+    
 
     .img-container {
       position: relative;
@@ -84,6 +92,18 @@
       font-size: 24px;
       text-align: center;
     }
+    
+    ::-webkit-scrollbar{
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track{
+      background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+      
+    }
+    ::-webkit-scrollbar-thumb{
+      background-color: #512da8;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -94,16 +114,33 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav "><!-- added mr-auto to push the left side -->
         <li class="nav-item">
-          <a class="nav-link btn" href="{% url 'activities' %}">Activity</a> <!-- Redirect to activities.html -->
+          <a class="nav-link btn" href="{% url 'About_us' %}">About us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn" href="{% url 'Opportunities' %}">Opportunities</a>
+          <a class="nav-link btn" href="{% url 'activities' %}">Activity</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" href="{% url 'Opportunities' %}">Job Portal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" href="{% url 'Opportunities' %}">F.A.Q's</a>
         </li>
       </ul>
+      <div> <!-- Added div with ml-auto class to push content to the right -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link btn" href="{% url 'signin' %}">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn" href="{% url 'signup' %}">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
     </div>
   </nav>
 

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 
 {% block title %}Activities{% endblock %}
 
@@ -62,24 +62,47 @@
       font-weight: bold; 
       color: black;
     }
+
+    /* Style for the button */
+    .container button.button-like {
+      background-color: #512da8;
+      color: #fff;
+      font-size: 12px;
+      padding: 10px 45px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 10px;
+      cursor: pointer;
+  }
+
+  .container button.button-like:hover{
+      background-color: #b6a5de;
+      color: black;
+  }
+
   </style>
 </head>
 <body>
 
   <div class="container mt-4">
+    <div class="row justify-content-end mb-3">
+        <div class="col-auto">
+          <button type="button" onclick="redirectToCreate()" class="button-like">Add Employee</button>
+        </div>
+    </div>
     <div class="card">
       <div class="card-body">
         <div class="title-container">
-          <h1 class="card-title">Activities</h1>
+          <h1 class="card-title">Employee Team List</h1>
         </div>
         <ul class="list-group">
-          <li class="list-group-item"><a href="{% url 'hackathon' %}" class="activity-item btn">Hackathons</a></li>
-          <li class="list-group-item"><a href="{% url 'team_building' %}" class="activity-item btn">Team Building Events</a></li>
-          <li class="list-group-item"><a href="{% url 'tech_talks' %}" class="activity-item btn">Tech Talks</a></li>
-          <li class="list-group-item"><a href="{% url 'workshops' %}" class="activity-item btn">Workshops</a></li>
-          <li class="list-group-item"><a href="{% url 'training_sessions' %}" class="activity-item btn">Training Sessions</a></li>
-          <li class="list-group-item"><a href="{% url 'networking_events' %}" class="activity-item btn">Networking Events</a></li>
-          <!-- Add more activities as needed -->
+            <li class="list-group-item"><a href="{% url 'workshops' %}" class="activity-item btn">BPO Team</a></li>
+            <li class="list-group-item"><a href="{% url 'hackathon' %}" class="activity-item btn">Sales Team</a></li>
+            <li class="list-group-item"><a href="{% url 'team_building' %}" class="activity-item btn">Contact Team</a></li>
+            <li class="list-group-item"><a href="{% url 'tech_talks' %}" class="activity-item btn">Service Team</a></li>
         </ul>
         
       </div>
@@ -88,5 +111,13 @@
 
 </body>
 </html>
+<script>
+ 
+  function redirectToCreate() {
+
+      window.location.href = "{% url 'add_employee' %}";
+
+  }
+</script>
 
 {% endblock %}
